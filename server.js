@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 
 // Handle 404 for missing images gracefully
 app.use('/assets/images', (req, res) => {
-    res.status(404).json({ error: 'Image not found' });
+    res.status(404).json({error: 'Image not found'});
 });
 
 // Start the server
