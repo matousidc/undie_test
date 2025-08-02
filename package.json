@@ -1,0 +1,28 @@
+{
+  "name": "bag-collection-website",
+  "version": "1.0.0",
+  "description": "A beautiful website showcasing a premium bag collection",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "bags",
+    "fashion",
+    "website",
+    "portfolio",
+    "static-files"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
