@@ -88,7 +88,6 @@
 
 
             /*        }*/
-
             .logo {
                 display: inline-block;
                 transition: transform 0.3s ease;
@@ -200,11 +199,36 @@
             }
 
             .product-card {
-                padding: 2rem;
-                border-radius: 20px;
-                text-align: center;
-                transition: all 0.3s ease;
-                overflow: hidden;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+                grid-template-rows: auto auto; /* Two rows: top for photos and text, bottom for the center photo */
+                padding: 2rem; /* Padding for spacing inside the card */
+                border-radius: 20px; /* Rounded corners for a modern look */
+                text-align: center; /* Center-align text */
+                transition: all 0.3s ease; /* Smooth transitions for hover effects, if desired */
+                overflow: hidden; /* Prevent content overflow */
+                width: 90%;
+                margin: 0 auto; /* Center the card on the page */
+            }
+
+
+
+            /* Center text (h3 and p) in the middle column, first row */
+            .product-card h3 {
+                grid-column: 2;
+                grid-row: 1;
+                margin: 0; /* Remove default margins */
+                font-size: 3rem; /* Larger font for "Biggie" */
+                font-family: sans-serif; /* Modern sans-serif font */
+                font-weight: bold;
+            }
+
+            .product-card p {
+                grid-column: 2;
+                grid-row: 1;
+                margin-top: 4rem; /* Space below h3 to stack vertically and align with photos */
+                font-size: 1rem; /* Smaller font for "blablabla" */
+                font-family: sans-serif;
             }
 
 
@@ -225,131 +249,83 @@
 
 
 
-            /* Container for all images in a product card */
-
+            /* Remove the product-images wrapper's default layout influence */
             .product-images {
-                display: grid;
-                grid-template-areas: "left main right"
-                    "left main right";
-                gap: 10px;
-                margin-top: 20px;
-                grid-template-columns: 1fr 2fr 1fr; /* Adjust column sizes as needed */
+                display: contents; /* Treat its children as direct children of the grid (modern browsers only) */
             }
 
 
 
-            /* General image styling for all product images */
+            /* Style all product images */
             .product-image {
-                background-size: contain;
+                /*                border: 1px solid white; !* Thin white borders as per the collage *!*/
+                width: 100%; /* Full width of their grid cell */
+                height: 300px; /* Fixed height; adjust as needed */
+                background-size: contain; /* Ensure background images cover the div */
                 background-repeat: no-repeat;
-                background-position: center;
-                background-color: #f0f0f0; /* Optional: a background color for empty space */
-                border-radius: 15px;
-                height: 300px; /* Set a height to make the grid visible */
+                background-position: center; /* Center the background images */
+                /*                object-fit: contain;*/
             }
 
 
 
             /* Grid area assignments and specific background images */
             .biggie-image-main {
-                grid-area: main;
-                background-image: url('assets/images/bags/biggie_bag.png');
+                grid-column: 2;
+                grid-row: 2;
+                background-image: url('assets/images/bags/biggie_main.jpg');
             }
 
             .biggie-image-small-1 {
-                grid-area: left;
-                background-image: url('assets/images/bags/ego2.png');
+                grid-column: 1;
+                grid-row: 1;
+                background-image: url('assets/images/bags/biggie_left.jpg');
             }
 
             .biggie-image-small-2 {
-                grid-area: right;
-                background-image: url('assets/images/bags/leg_tattoo.png');
+                grid-column: 3;
+                grid-row: 1;
+                background-image: url('assets/images/bags/biggie_right.jpg');
+            }
+            .ocean-image-main {
+                grid-column: 2;
+                grid-row: 2;
+                background-image: url('assets/images/bags/ocean_main.jpg');
             }
 
+            .ocean-image-small-1 {
+                grid-column: 1;
+                grid-row: 1;
+                background-image: url('assets/images/bags/ocean_left.jpg');
+            }
 
+            .ocean-image-small-2 {
+                grid-column: 3;
+                grid-row: 1;
+                background-image: url('assets/images/bags/ocean_right.gif');
+            }
 
-            /*        !* General image styling for all product images *!*/
+            .reverse-image-main {
+                grid-column: 2;
+                grid-row: 2;
+                background-image: url('assets/images/bags/reverse_main.jpg');
+            }
 
+            .reverse-image-small-1 {
+                grid-column: 1;
+                grid-row: 1;
+                background-image: url('assets/images/bags/reverse_left.jpg');
+            }
 
-
-            /*        .product-images div {*/
-
-
-
-            /*            height: 300px; !* Adjust height as needed *!*/
-
-
-
-            /*            width: 100%;*/
-
-
-
-            /*        }*/
-
-
-
-            /*        .product-image {*/
-
-
-
-            /*            width: 100%;*/
-
-
-
-            /*            height: 300px;*/
-
-
-
-            /*            background-position: center;*/
-
-
-
-            /*            border-radius: 15px;*/
-
-
-
-            /*            margin-bottom: 1rem;*/
-
-
-
-            /*            transition: transform 0.3s ease;*/
-
-
-
-            /*        }*/
+            .reverse-image-small-2 {
+                grid-column: 3;
+                grid-row: 1;
+                background-image: url('assets/images/bags/reverse_right.jpg');
+            }
 
             .product-card:hover .product-image {
                 transform: scale(1.05);
             }
-
-            .biggie-image {
-                background-image: url('assets/images/bags/biggie_bag.png');
-                background-size: contain;
-            }
-
-
-
-            /*        .ocean-image {*/
-
-
-
-            /*            background-image: url('assets/images/bags/ocean-bag.jpg');*/
-
-
-
-            /*        }*/
-
-
-
-            /*        .reverse-image {*/
-
-
-
-            /*            background-image: url('assets/images/bags/reverse-bag.jpg');*/
-
-
-
-            /*        }*/
 
             .product-icon {
                 width: 60px;
@@ -361,16 +337,6 @@
                 justify-content: center;
                 margin: 0 auto 1rem;
                 font-size: 1.5rem;
-            }
-
-            .product-card h3 {
-                font-size: 1.8rem;
-                margin-bottom: 1rem;
-            }
-
-            .product-card p {
-                font-size: 1rem;
-                opacity: 0.9;
             }
 
 
@@ -393,7 +359,7 @@
                 flex-direction: column;
                 gap: 3rem;
                 align-items: center;
-                max-width: 80%;
+                max-width: 90%;
                 margin: 0 auto;
             }
 
@@ -432,6 +398,7 @@
                 padding: 2rem;
                 border-radius: 20px;
                 border: 1px solid rgba(255, 255, 255, 0.4);
+                width: 60%;
             }
 
             .form-group {
@@ -560,22 +527,12 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <!--&lt;!&ndash; Hero Section &ndash;&gt;-->
-            <!--<section class="section hero">-->
-            <!--    <div class="container">-->
-            <!--        <h1>Premium Bag Collection</h1>-->
-            <!--        <p>Discover our unique range of handcrafted bags</p>-->
-            <!--    </div>-->
-            <!--</section>-->
-
             <!-- About Section -->
             <section class="section about" id="about">
                 <div class="container">
                     <div class="about-content fade-in">
                         <h2>About Me</h2>
-                        <p>Welcome to my world of premium bags! I'm passionate about creating unique, high-quality bags that combine style, functionality, and craftsmanship.</p>
-                        <p>Each bag in my collection is carefully designed and crafted to meet the needs of modern life while maintaining a timeless aesthetic that you'll love for years to come.</p>
-                        <p>From everyday essentials to statement pieces, I believe that the right bag can transform not just your outfit, but your entire day.</p>
+                        <p>Hi im Tereza</p>
                     </div>
                 </div>
             </section>
@@ -587,7 +544,7 @@
                     <div class="product-grid">
                         <div class="product-card fade-in">
                             <h3>Biggie</h3>
-                            <p>Our largest bag designed for those who need to carry everything. Perfect for travel, work, or everyday adventures. Spacious compartments and durable materials make this the ultimate companion.</p>
+                            <p>Dimensins: bla bla</p>
                             <div class="product-images">
                                 <div class="product-image biggie-image-main"></div>
                                 <div class="product-image biggie-image-small-1"></div>
@@ -597,12 +554,22 @@
                         <div class="product-card fade-in">
                             <div class="product-image ocean-image"></div>
                             <h3>Ocean</h3>
-                            <p>Inspired by the depths of the ocean, this bag features flowing lines and calming blue tones. Ideal for those who appreciate elegance and tranquility in their everyday carry.</p>
+                            <p>Dimensions: bla bla, Usage</p>
+                            <div class="product-images">
+                                <div class="product-image ocean-image-main"></div>
+                                <div class="product-image ocean-image-small-1"></div>
+                                <div class="product-image ocean-image-small-2"></div>
+                            </div>
                         </div>
                         <div class="product-card fade-in">
                             <div class="product-image reverse-image"></div>
                             <h3>Reverse</h3>
-                            <p>A revolutionary design that can be worn multiple ways. Transform your look instantly with this versatile bag that adapts to your style and needs throughout the day.</p>
+                            <p>Dimensions: bla bla, Usage</p>
+                            <div class="product-images">
+                                <div class="product-image reverse-image-main"></div>
+                                <div class="product-image reverse-image-small-1"></div>
+                                <div class="product-image reverse-image-small-2"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
