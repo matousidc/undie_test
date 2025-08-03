@@ -16,7 +16,7 @@
             }
 
             body {
-                font-family: 'Arial', sans-serif;
+                font-family: "Libertinus Serif", serif;
                 line-height: 1.6;
                 color: #333;
                 /*                background: linear-gradient(135deg, #c8d5b9 0%, #a8c69f 25%, #8db596 50%, #7ba05b 75%, #9caf88 100%);*/
@@ -76,8 +76,9 @@
             .contact-link {
                 color: black;
                 text-decoration: none;
-                font-size: 1rem;
+                font-size: 1.5rem;
                 font-weight: 500;
+                font-family: "Libertinus Serif", serif;
                 transition: all 0.3s ease;
                 padding: 0.3rem 0.3rem;
                 border-radius: 20px;
@@ -235,7 +236,7 @@
                 grid-row: 1;
                 margin-top: 5rem; /* Space below h3 to stack vertically and align with photos */
                 font-size: 2rem; /* Smaller font for "blablabla" */
-                font-family: "National Park", sans-serif;
+                font-family: "Libertinus Serif", serif;
             }
 
 
@@ -342,7 +343,7 @@
             .contact h2 {
                 text-align: center;
                 font-size: 4rem;
-                margin-bottom: 3rem;
+                margin-bottom: 1rem;
                 font-family: "Libertinus Serif", serif; /* Modern sans-serif font */
                 font-weight: normal;
             }
@@ -350,10 +351,12 @@
             .contact-content {
                 display: flex;
                 flex-direction: column;
-                gap: 3rem;
+                gap: 1rem;
                 align-items: center;
                 max-width: 90%;
                 margin: 0 auto;
+                font-family: "Libertinus Serif", serif;
+                font-size: 2rem;
             }
 
             .contact-info {
@@ -479,10 +482,16 @@
                     font-size: 1.2rem;
                 }
 
-                .about h2,
-                .products h2,
+                .about h2 {
+                    font-size: 4rem;
+                }
+                ,
+                .products h2 {
+                    font-size: 4rem;
+                }
+                ,
                 .contact h2 {
-                    font-size: 2rem;
+                    font-size: 4rem;
                 }
 
                 .header {
@@ -588,32 +597,9 @@
                     <h2 class="fade-in">Contact Me</h2>
                     <div class="contact-content">
                         <div class="contact-info fade-in">
-                            <div class="contact-method">
-                                <h3><a href="https://instagram.com/_undie_" target="_blank" rel="noopener noreferrer" class="instagram-link">Instagram</a></h3>
-                                <p>Follow for behind-the-scenes and new releases</p>
-                            </div>
-                            <div class="contact-method">
-                                <h3>Email</h3>
-                                <p>Follow for behind-the-scenes and new releases</p>
-                            </div>
+                            <h3><a href="https://instagram.com/_undie_" target="_blank" rel="noopener noreferrer" class="instagram-link">Instagram</a></h3>
+                            <h3>undie@seznam.cz</h3>
                         </div>
-                        <!--<div class="contact-form fade-in">-->
-                        <!--    <form>-->
-                        <!--        <div class="form-group">-->
-                        <!--            <label for="name">Name</label>-->
-                        <!--            <input type="text" id="name" name="name" required>-->
-                        <!--        </div>-->
-                        <!--        <div class="form-group">-->
-                        <!--            <label for="email">Email</label>-->
-                        <!--            <input type="email" id="email" name="email" required>-->
-                        <!--        </div>-->
-                        <!--        <div class="form-group">-->
-                        <!--            <label for="message">Message</label>-->
-                        <!--            <textarea id="message" name="message" placeholder="Tell me about your bag needs..." required></textarea>-->
-                        <!--        </div>-->
-                        <!--        <button type="submit" class="submit-btn">Send Message</button>-->
-                        <!--    </form>-->
-                        <!--</div>-->
                     </div>
                 </div>
             </section>
