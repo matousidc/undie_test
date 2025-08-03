@@ -18,7 +18,7 @@
             body {
                 font-family: "Libertinus Serif", serif;
                 line-height: 1.6;
-                color: #333;
+                color: black;
                 /*                background: linear-gradient(135deg, #c8d5b9 0%, #a8c69f 25%, #8db596 50%, #7ba05b 75%, #9caf88 100%);*/
                 /*                background: linear-gradient(135deg, #7ba05b 0%, #8db596 25%, #a8a8a8 50%, #969696 75%, #888888 100%);*/
                 /*                background: linear-gradient(135deg, #7ba05b 0%, #8db596 25%, #a8a898 50%, #969688 75%, #888880 100%);*/
@@ -67,11 +67,6 @@
                 transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother, longer transition */
             }
 
-
-            .header.shrunk {
-                height: 90px; /* Smaller height when scrolled */
-                padding: 0.5rem 2rem; /* Reduced padding */
-            }
 
             .contact-link {
                 color: black;
@@ -131,10 +126,6 @@
 
 
             /* Hero Section */
-            .hero {
-                color: #333;
-                text-align: center;
-            }
 
             .hero h1 {
                 font-size: 4rem;
@@ -168,7 +159,6 @@
             .about h2 {
                 font-size: 4rem;
                 margin-bottom: 2rem;
-                color: #333;
                 font-family: "Libertinus Serif", serif; /* Modern sans-serif font */
                 font-weight: normal;
             }
@@ -176,7 +166,6 @@
             .about p {
                 font-size: 2rem;
                 margin-bottom: 1.5rem;
-                color: #444;
                 font-family: "National Park", sans-serif;
             }
 
@@ -185,7 +174,6 @@
             /* Products Section */
             .products {
                 background: transparent;
-                color: #333;
             }
 
             .products h2 {
@@ -208,22 +196,22 @@
 
             .product-card {
                 display: grid;
-                grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
-                grid-template-rows: auto auto; /* Two rows: top for photos and text, bottom for the center photo */
-                /*                padding: 2rem; !* Padding for spacing inside the card *!*/
-                /*                border-radius: 20px; !* Rounded corners for a modern look *!*/
-                text-align: center; /* Center-align text */
-                transition: all 0.3s ease; /* Smooth transitions for hover effects, if desired */
-                overflow: hidden; /* Prevent content overflow */
+                grid-template-columns: 1fr 1fr 1fr; /* Three equal columns for images */
+                grid-template-rows: auto auto auto; /* Three rows: h3, images, p */
+                gap: 1rem; /* Add some spacing between elements */
+                text-align: center;
+                transition: all 0.3s ease;
+                overflow: hidden;
                 width: 90%;
-                margin: 0 auto; /* Center the card on the page */
+                margin: 0 auto;
+                padding: 1rem; /* Add some padding */
             }
 
 
 
             /* Center text (h3 and p) in the middle column, first row */
             .product-card h3 {
-                grid-column: 2;
+                grid-column: 1 / -1; /* Span all columns */
                 grid-row: 1;
                 margin: 0; /* Remove default margins */
                 font-size: 4rem; /* Larger font for "Biggie" */
@@ -232,31 +220,25 @@
             }
 
             .product-card p {
-                grid-column: 2;
-                grid-row: 1;
-                margin-top: 5rem; /* Space below h3 to stack vertically and align with photos */
+                grid-column: 1 / -1; /* Span all columns */
+                grid-row: 3;
+                margin: 0;
+                /*                margin-top: 5rem; !* Space below h3 to stack vertically and align with photos *!*/
                 font-size: 2rem; /* Smaller font for "blablabla" */
                 font-family: "Libertinus Serif", serif;
             }
 
 
 
-            /* Remove the product-images wrapper's default layout influence */
-            .product-images {
-                display: contents; /* Treat its children as direct children of the grid (modern browsers only) */
-            }
-
-
-
             /* Style all product images */
             .product-image {
-                /*                border: 1px solid white; !* Thin white borders as per the collage *!*/
+                grid-row: 2; /* All images in second row */
                 width: 100%; /* Full width of their grid cell */
                 height: 400px; /* Fixed height; adjust as needed */
                 background-size: contain; /* Ensure background images cover the div */
                 background-repeat: no-repeat;
                 background-position: center; /* Center the background images */
-                /*                object-fit: contain;*/
+                transition: transform 0.3s ease;
             }
 
 
@@ -264,54 +246,45 @@
             /* Grid area assignments and specific background images */
             .biggie-image-main {
                 grid-column: 2;
-                grid-row: 2;
                 background-image: url('assets/images/bags/biggie_main.jpg');
             }
 
             .biggie-image-small-1 {
                 grid-column: 1;
-                grid-row: 1;
                 background-image: url('assets/images/bags/biggie_left.jpg');
             }
 
             .biggie-image-small-2 {
                 grid-column: 3;
-                grid-row: 1;
                 background-image: url('assets/images/bags/biggie_right.jpg');
             }
             .ocean-image-main {
                 grid-column: 2;
-                grid-row: 2;
                 background-image: url('assets/images/bags/ocean_main.jpg');
             }
 
             .ocean-image-small-1 {
                 grid-column: 1;
-                grid-row: 1;
                 background-image: url('assets/images/bags/ocean_left.jpg');
             }
 
             .ocean-image-small-2 {
                 grid-column: 3;
-                grid-row: 1;
                 background-image: url('assets/images/bags/ocean_right.gif');
             }
 
             .reverse-image-main {
                 grid-column: 2;
-                grid-row: 2;
                 background-image: url('assets/images/bags/reverse_main.jpg');
             }
 
             .reverse-image-small-1 {
                 grid-column: 1;
-                grid-row: 1;
                 background-image: url('assets/images/bags/reverse_left.jpg');
             }
 
             .reverse-image-small-2 {
                 grid-column: 3;
-                grid-row: 1;
                 background-image: url('assets/images/bags/reverse_right.jpg');
             }
 
@@ -319,24 +292,11 @@
                 transform: scale(1.05);
             }
 
-            .product-icon {
-                width: 60px;
-                height: 60px;
-                background: rgba(255, 255, 255, 0.2);
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 0 auto 1rem;
-                font-size: 1.5rem;
-            }
-
 
 
             /* Contact Section */
             .contact {
                 background: transparent;
-                color: #333;
                 scroll-margin-top: 100px;
             }
 
@@ -363,21 +323,6 @@
                 text-align: center;
             }
 
-            .contact-method {
-                background: rgba(255, 255, 255, 0.3);
-                backdrop-filter: blur(10px);
-                padding: 2rem;
-                border-radius: 15px;
-                margin-bottom: 1rem;
-                transition: all 0.3s ease;
-                border: 1px solid rgba(255, 255, 255, 0.4);
-            }
-
-            .contact-method:hover {
-                transform: translateY(-5px);
-                background: rgba(255, 255, 255, 0.4);
-            }
-
             .contact-method h3 {
                 font-size: 1.5rem;
                 margin-bottom: 0.5rem;
@@ -387,19 +332,6 @@
             .contact-method p {
                 font-size: 1.1rem;
                 opacity: 0.8;
-            }
-
-            .contact-form {
-                background: rgba(255, 255, 255, 0.3);
-                backdrop-filter: blur(10px);
-                padding: 2rem;
-                border-radius: 20px;
-                border: 1px solid rgba(255, 255, 255, 0.4);
-                width: 60%;
-            }
-
-            .form-group {
-                margin-bottom: 1.5rem;
             }
 
             .form-group label {
@@ -415,31 +347,12 @@
                 border: none;
                 border-radius: 10px;
                 background: rgba(255, 255, 255, 0.9);
-                color: #333;
                 font-size: 1rem;
             }
 
             .form-group textarea {
                 height: 120px;
                 resize: vertical;
-            }
-
-            .submit-btn {
-                width: 100%;
-                padding: 1rem;
-                background: #f5576c;
-                color: white;
-                border: none;
-                border-radius: 10px;
-                font-size: 1.1rem;
-                font-weight: bold;
-                cursor: pointer;
-                transition: all 0.3s ease;
-            }
-
-            .submit-btn:hover {
-                background: #e74c3c;
-                transform: translateY(-2px);
             }
 
 
@@ -513,19 +426,7 @@
                 .section:target {
                     scroll-margin-top: 80px;
                 }
-                .contact-link-instagram {
-                    display: block;
-                    text-decoration: none;
-                    color: inherit;
-                }
 
-                .contact-link-instagram:hover {
-                    color: inherit;
-                }
-
-                .contact-link-instagram:visited {
-                    color: inherit;
-                }
             }
         </style>
     </head>
@@ -560,32 +461,30 @@
                     <div class="product-grid">
                         <div class="product-card fade-in">
                             <h3>Biggie</h3>
+                            <!--<div class="product-images">-->
+                            <div class="product-image biggie-image-main"></div>
+                            <div class="product-image biggie-image-small-1"></div>
+                            <div class="product-image biggie-image-small-2"></div>
                             <p>Dimensins: bla bla</p>
-                            <div class="product-images">
-                                <div class="product-image biggie-image-main"></div>
-                                <div class="product-image biggie-image-small-1"></div>
-                                <div class="product-image biggie-image-small-2"></div>
-                            </div>
+                            <!--</div>-->
                         </div>
                         <div class="product-card fade-in">
-                            <div class="product-image ocean-image"></div>
                             <h3>Ocean</h3>
+                            <!--<div class="product-images">-->
+                            <div class="product-image ocean-image-main"></div>
+                            <div class="product-image ocean-image-small-1"></div>
+                            <div class="product-image ocean-image-small-2"></div>
                             <p>Dimensions: bla bla, Usage</p>
-                            <div class="product-images">
-                                <div class="product-image ocean-image-main"></div>
-                                <div class="product-image ocean-image-small-1"></div>
-                                <div class="product-image ocean-image-small-2"></div>
-                            </div>
+                            <!--</div>-->
                         </div>
                         <div class="product-card fade-in">
-                            <div class="product-image reverse-image"></div>
                             <h3>Reverse</h3>
+                            <!--<div class="product-images">-->
+                            <div class="product-image reverse-image-main"></div>
+                            <div class="product-image reverse-image-small-1"></div>
+                            <div class="product-image reverse-image-small-2"></div>
                             <p>Dimensions: bla bla, Usage</p>
-                            <div class="product-images">
-                                <div class="product-image reverse-image-main"></div>
-                                <div class="product-image reverse-image-small-1"></div>
-                                <div class="product-image reverse-image-small-2"></div>
-                            </div>
+                            <!--</div>-->
                         </div>
                     </div>
                 </div>
