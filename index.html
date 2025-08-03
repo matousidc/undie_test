@@ -501,13 +501,26 @@
                 .section:target {
                     scroll-margin-top: 80px;
                 }
+                .contact-link-instagram {
+                    display: block;
+                    text-decoration: none;
+                    color: inherit;
+                }
+
+                .contact-link-instagram:hover {
+                    color: inherit;
+                }
+
+                .contact-link-instagram:visited {
+                    color: inherit;
+                }
             }
         </style>
     </head>
-    <body>
+    <body id="top">
         <!-- Header -->
         <header class="header">
-            <a href="#" class="logo">
+            <a href="#top" class="logo">
                 <div class="logo-icon"></div>
             </a>
             <div class="contact-links-container">
@@ -573,7 +586,11 @@
                     <div class="contact-content">
                         <div class="contact-info fade-in">
                             <div class="contact-method">
-                                <h3>📱 Instagram</h3>
+                                <h3><a href="https://instagram.com/_undie_" target="_blank" rel="noopener noreferrer" class="instagram-link">Instagram</a></h3>
+                                <p>Follow for behind-the-scenes and new releases</p>
+                            </div>
+                            <div class="contact-method">
+                                <h3>Email</h3>
                                 <p>Follow for behind-the-scenes and new releases</p>
                             </div>
                         </div>
@@ -688,6 +705,7 @@
                     testImg.src = url;
                 }
             });
+
         </script>
     </body>
 </html>
