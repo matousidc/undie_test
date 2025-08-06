@@ -118,7 +118,7 @@
 
             .section {
                 min-height: 60vh;
-                padding: 2rem 2rem;
+                /*                padding: 2rem 2rem;*/
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -155,12 +155,14 @@
             /* About Section */
             .about {
                 background: transparent;
-                scroll-margin-top: 80px;
+                scroll-margin-top: 120px;
+                margin-top: 180px;
             }
 
             .about-content {
                 text-align: center;
-                max-width: 800px;
+                /*                max-width: 800px;*/
+                width: 90%;
                 margin: 40px auto;
             }
 
@@ -172,9 +174,11 @@
             }
 
             .about p {
-                font-size: 2rem;
+                font-size: 1.5rem;
                 margin-bottom: 1.5rem;
-                font-family: "National Park", sans-serif;
+                /*                font-family: "National Park", sans-serif;*/
+                font-family: "Libertinus Serif", serif;
+                text-align: left;
             }
 
 
@@ -232,8 +236,9 @@
                 grid-row: 3;
                 margin: 0;
                 /*                margin-top: 5rem; !* Space below h3 to stack vertically and align with photos *!*/
-                font-size: 2rem; /* Smaller font for "blablabla" */
+                font-size: 1.5rem; /* Smaller font for "blablabla" */
                 font-family: "Libertinus Serif", serif;
+                text-align: left;
             }
 
 
@@ -434,174 +439,222 @@
                 .section:target {
                     scroll-margin-top: 80px;
                 }
-
             }
         </style>
     </head>
-    <body id="top">
-        <!-- Header -->
-        <header class="header">
-            <a href="#top" class="logo">
-                <div class="logo-icon"></div>
-            </a>
-            <div class="contact-links-container">
-                <a href="#about" class="contact-link">About</a>
-                <a href="#contact" class="contact-link">Contact</a>
+    <!-- Header -->
+    <header class="header">
+        <a href="#about" class="logo">
+            <div class="logo-icon"></div>
+        </a>
+        <div class="contact-links-container">
+            <a href="#about" class="contact-link">About</a>
+            <a href="#contact" class="contact-link">Contact</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- About Section -->
+        <section class="section about" id="about">
+            <div class="container">
+                <div class="about-content fade-in">
+                    <h2>About me</h2>
+                    <p>Welcome to my portfolio! My name is Tereza Marková, but in the creative world, I craft under
+                        the name <em>Undie</em>. While my professional journey began in the structured world of corporate
+                        finance, I always felt a yearning for something more tangible—something that allowed me to
+                        work with my hands and bring ideas to life in the real world. So, in 2023, I took the leap to
+                        reconnect with my passion for craftsmanship, and that's how Undie was born.<br>
+                        It all started with a single design: the Biggie Bag. From the beginning, my focus has been on
+                        creating unisex designs that resonate with an outdoor spirit—because that’s a reflection of who I
+                        am. I love versatility and multifunctionality, and I strive to weave those values into every piece I
+                        create. My designs aren’t just accessories; they’re tools meant to adapt to your lifestyle and
+                        stand the test of time.<br>
+                        I primarily work with durable, high-quality outdoor materials sourced from local suppliers, but
+                        sustainability is a cornerstone of what I do. That’s why I also incorporate secondhand and
+                        deadstock fabrics wherever possible, giving new life to materials that might otherwise go
+                        unused. Every bag is thoughtfully designed and lovingly handcrafted by me, with an emphasis
+                        on quality and individuality. While my core designs are customizable to suit your needs, I’m
+                        always excited to collaborate on fully custom creations from scratch—those projects ignite my
+                        creativity the most.<br>
+                        At Undie, I believe in a philosophy of repair and sustainability. Instead of replacing your
+                        belongings when they wear out, why not fix them? If your Undie bag ever needs a little bit of
+                        love, just let me know, and I’ll be happy to repair it for you. It’s my small way of encouraging a
+                        world that values durability, mindfulness, and conscious consumption.<br>
+                        Thank you for stopping by—let’s create something meaningful together!</p>
+                </div>
             </div>
-        </header>
+        </section>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- About Section -->
-            <section class="section about" id="about">
-                <div class="container">
-                    <div class="about-content fade-in">
-                        <h2>About me</h2>
-                        <p>Hi im Tereza</p>
+        <!-- Products Section -->
+        <section class="section products" id="products">
+            <div class="container">
+                <h2 class="fade-in">The Collection</h2>
+                <div class="product-grid">
+                    <div class="product-card fade-in">
+                        <h3>Biggie</h3>
+                        <div class="product-image biggie-image-main"></div>
+                        <div class="product-image biggie-image-small-1"></div>
+                        <div class="product-image biggie-image-small-2"></div>
+                        <p>Biggie - Also known as the design my friends wouldn’t let me keep to myself, this bag holds a
+                            special place in my journey—it’s where it all began. The inspiration struck during a frustratingly
+                            familiar moment: a quick trip to the grocery store, only to realize I’d forgotten my trusty tote bag.
+                            With nothing to carry my groceries in, the idea for a smarter, more versatile bag was born. I
+                            wanted something that wasn’t just functional but seamlessly fit into everyday life—perfect for
+                            city strolls with a spontaneous stop at the market.<br>
+                            And so, the Expansible Bag came to life. Designed to adapt to your needs, this bag expands
+                            both horizontally and vertically, offering flexibility for whatever your day holds. Whether you’re
+                            carrying a few essentials or loading up with fresh produce, it adjusts effortlessly. The secure zip
+                            closure keeps everything safe, while a handy interior pocket provides the perfect spot for your
+                            smaller must-haves—keys, wallet, or phone. The adjustable straps ensure a comfortable fit,
+                            tailored just for you, no matter your height or how you prefer to wear it.<br>
+                            It’s more than just a bag—it’s a problem solver, a daily companion, and a reflection of my love
+                            for thoughtful, functional design.</p>
+                    </div>
+                    <div class="product-card fade-in">
+                        <h3>Ocean</h3>
+                        <div class="product-image ocean-image-main"></div>
+                        <div class="product-image ocean-image-small-1"></div>
+                        <div class="product-image ocean-image-small-2"></div>
+                        <p>With this design, I wanted to bring my favorite creative technique to life—a unique, stretchy
+                            thread style I call freestyle. It’s an organic process that adds texture and personality to every
+                            piece, making each bag one-of-a-kind. No two are exactly the same, and that’s what I love most
+                            about it—the individuality stitched into every thread.<br>
+                            Versatility is at the heart of this bag. Thanks to its adjustable straps, you can wear it in whatever
+                            way suits your vibe or needs: as a fun and functional fanny pack, a stylish crossbody, or
+                            effortlessly slung over your shoulder. The original design features a sleek magnetic closure for
+                            easy access, but if you prefer something more secure, I can swap it out for a
+                            zipper—customization is always an option.<br>
+                            What’s more, the size is completely up to you! Whether you need something compact for your
+                            essentials or a roomier version to fit your on-the-go lifestyle, we can tailor it to fit your world. It’s
+                            a bag that’s as flexible and unique as you are, blending style, function, and just the right touch
+                            of individuality.</p>
+                    </div>
+                    <div class="product-card fade-in">
+                        <h3>Reverse</h3>
+                        <div class="product-image reverse-image-main"></div>
+                        <div class="product-image reverse-image-small-1"></div>
+                        <div class="product-image reverse-image-small-2"></div>
+                        <p>Dreaming of packing light for your vacation but worried about finding a bag that matches all your
+                            outfits? Or you just can not decide which color of bag you need? Let me introduce The Reverse
+                            Bag—your ultimate style chameleon. With this clever design, you’re essentially getting two bags
+                            in one. Whether you want to match your look, suit your mood, or switch things up mid-day, this
+                            bag makes it effortless. Simply flip the body of the bag, and voilà—a whole new vibe.<br>
+                            The adjustable strap ensures a perfect fit, so you can wear it comfortably all day long, no matter
+                            where your adventures take you. Plus, the colors, fabrics, and details are fully customizable,
+                            allowing you to create a bag that reflects your personal style. The magnetic closure is a
+                            thoughtful touch, designed specifically to maintain the bag’s reversibility while keeping your
+                            belongings secure.<br>
+                            It’s more than a bag—it’s a versatile, stylish problem-solver that’s ready to adapt to your life,
+                            your wardrobe, and your travels.</p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Products Section -->
-            <section class="section products" id="products">
-                <div class="container">
-                    <h2 class="fade-in">The Collection</h2>
-                    <div class="product-grid">
-                        <div class="product-card fade-in">
-                            <h3>Biggie</h3>
-                            <!--<div class="product-images">-->
-                            <div class="product-image biggie-image-main"></div>
-                            <div class="product-image biggie-image-small-1"></div>
-                            <div class="product-image biggie-image-small-2"></div>
-                            <p>Dimensins: bla bla</p>
-                            <!--</div>-->
-                        </div>
-                        <div class="product-card fade-in">
-                            <h3>Ocean</h3>
-                            <!--<div class="product-images">-->
-                            <div class="product-image ocean-image-main"></div>
-                            <div class="product-image ocean-image-small-1"></div>
-                            <div class="product-image ocean-image-small-2"></div>
-                            <p>Dimensions: bla bla, Usage</p>
-                            <!--</div>-->
-                        </div>
-                        <div class="product-card fade-in">
-                            <h3>Reverse</h3>
-                            <!--<div class="product-images">-->
-                            <div class="product-image reverse-image-main"></div>
-                            <div class="product-image reverse-image-small-1"></div>
-                            <div class="product-image reverse-image-small-2"></div>
-                            <p>Dimensions: bla bla, Usage</p>
-                            <!--</div>-->
-                        </div>
+        <!-- Contact Section -->
+        <section class="section contact" id="contact">
+            <div class="container">
+                <h2 class="fade-in">Contact Me</h2>
+                <div class="contact-content">
+                    <div class="contact-info fade-in">
+                        <h3><a href="https://instagram.com/_undie_" target="_blank" rel="noopener noreferrer" class="instagram-link">Instagram</a></h3>
+                        <h3>undie@seznam.cz</h3>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
+    </main>
 
-            <!-- Contact Section -->
-            <section class="section contact" id="contact">
-                <div class="container">
-                    <h2 class="fade-in">Contact Me</h2>
-                    <div class="contact-content">
-                        <div class="contact-info fade-in">
-                            <h3><a href="https://instagram.com/_undie_" target="_blank" rel="noopener noreferrer" class="instagram-link">Instagram</a></h3>
-                            <h3>undie@seznam.cz</h3>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <script>
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-
-            // Scroll animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.fade-in').forEach(el => {
-                observer.observe(el);
-            });
-
-            // Header background change on scroll
-            window.addEventListener('scroll', () => {
-                const header = document.querySelector('.header');
-                const scrolly = window.scrollY;
-                if (scrolly > 50) {
-                    header.classList.add("shrunk")
-                } else {
-                    header.classList.remove("shrunk")
-                }
-            });
-
-            // Form submission
-            document.querySelector('form').addEventListener('submit', function (e) {
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-
-                // Get form data
-                const formData = new FormData(this);
-                const name = formData.get('name');
-                const email = formData.get('email');
-                const message = formData.get('message');
-
-                // Simple validation
-                if (name && email && message) {
-                    alert('Thank you for your message! I\'ll get back to you soon.');
-                    this.reset();
-                } else {
-                    alert('Please fill in all fields.');
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 }
             });
+        });
 
-            // Add some interactive hover effects
-            document.querySelectorAll('.product-card').forEach(card => {
-                card.addEventListener('mouseenter', function () {
-                    this.style.transform = 'translateY(-10px) scale(1.02)';
-                });
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-                card.addEventListener('mouseleave', function () {
-                    this.style.transform = 'translateY(0) scale(1)';
-                });
-            });
-
-            // Image loading fallback for product images
-            document.querySelectorAll('.product-image').forEach(img => {
-                const bgImage = window.getComputedStyle(img).backgroundImage;
-                if (bgImage && bgImage !== 'none') {
-                    const url = bgImage.slice(4, -1).replace(/"/g, "");
-                    const testImg = new Image();
-                    testImg.onload = () => {
-                        img.style.opacity = '1';
-                    };
-                    testImg.onerror = () => {
-                        img.style.background = 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)';
-                        img.style.opacity = '0.8';
-                    };
-                    testImg.src = url;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
                 }
             });
+        }, observerOptions);
 
-        </script>
-    </body>
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            const scrolly = window.scrollY;
+            if (scrolly > 50) {
+                header.classList.add("shrunk")
+            } else {
+                header.classList.remove("shrunk")
+            }
+        });
+
+        //            // Form submission
+        //            document.querySelector('form').addEventListener('submit', function (e) {
+        //                e.preventDefault();
+        //
+        //                // Get form data
+        //                const formData = new FormData(this);
+        //                const name = formData.get('name');
+        //                const email = formData.get('email');
+        //                const message = formData.get('message');
+        //
+        //                // Simple validation
+        //                if (name && email && message) {
+        //                    alert('Thank you for your message! I\'ll get back to you soon.');
+        //                    this.reset();
+        //                } else {
+        //                    alert('Please fill in all fields.');
+        //                }
+        //            });
+
+        // Add some interactive hover effects
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('mouseenter', function () {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+
+            card.addEventListener('mouseleave', function () {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Image loading fallback for product images
+        document.querySelectorAll('.product-image').forEach(img => {
+            const bgImage = window.getComputedStyle(img).backgroundImage;
+            if (bgImage && bgImage !== 'none') {
+                const url = bgImage.slice(4, -1).replace(/"/g, "");
+                const testImg = new Image();
+                testImg.onload = () => {
+                    img.style.opacity = '1';
+                };
+                testImg.onerror = () => {
+                    img.style.background = 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)';
+                    img.style.opacity = '0.8';
+                };
+                testImg.src = url;
+            }
+        });
+
+    </script>
 </html>
