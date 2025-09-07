@@ -7,699 +7,152 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Libertinus+Serif&family=National+Park:wght@400;500&display=swap" rel="stylesheet">
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-
-            body {
-                font-family: "Libertinus Serif", serif;
-                line-height: 1.6;
-                color: black;
-                /*                background: linear-gradient(135deg, #8C9688 0%, #ABB2A9 25%, #C3C8C1 50%, #DADDD9 75%, #F2F3F1 100%);*/
-                background: white;
-
-                background-size: 300% 300%;
-                animation: gradientShift 20s ease infinite;
-                min-height: 100vh;
-            }
-
-            @keyframes gradientShift {
-                0% {
-                    background-position: 0 50%;
-                }
-                25% {
-                    background-position: 100% 50%;
-                }
-                50% {
-                    background-position: 100% 100%;
-                }
-                75% {
-                    background-position: 0 100%;
-                }
-                100% {
-                    background-position: 0 50%;
-                }
-            }
-
-
-
-            /* Header */
-            .header {
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                background: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(10px);
-                padding: 0.5rem 2rem;
-                z-index: 1000;
-                box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother, longer transition */
-            }
-
-
-            .contact-link {
-                color: black;
-                text-decoration: none;
-                font-size: 1.5rem;
-                font-weight: 500;
-                font-family: "Libertinus Serif", serif;
-                transition: all 0.3s ease;
-                padding: 0.3rem 0.3rem;
-                border-radius: 20px;
-            }
-
-
-            .logo {
-                display: inline-block;
-                transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother transition */
-            }
-
-            .logo:hover {
-                transform: scale(1.05);
-            }
-
-            .logo-icon {
-                width: 600px;
-                height: 150px;
-                background: url('assets/images/icons/undie_logo_png_black.png') center/contain no-repeat;
-                transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother transition */
-            }
-
-            .header.shrunk .logo-icon {
-                width: 200px; /* Smaller logo when shrunk */
-                height: 60px;
-            }
-            .header.shrunk {
-                height: 90px; /* Smaller height when scrolled */
-                padding: 0.5rem 2rem; /* Reduced padding */
-                background: rgba(255, 255, 255, 0.75); /* More transparent */
-                    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.15);
-                backdrop-filter: none; /* Remove blur completely */
-            }
-
-
-
-            /* Main Content */
-            .main-content {
-                margin-top: 120px;
-            }
-
-            .section {
-                min-height: 60vh;
-                /*                padding: 2rem 2rem;*/
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: relative;
-            }
-
-            .container {
-                max-width: 1200px;
-                width: 100%;
-                margin: 0 auto;
-            }
-
-
-
-            /* Hero Section */
-
-            .hero h1 {
-                font-size: 4rem;
-                margin-bottom: 1rem;
-                opacity: 0;
-                animation: fadeInUp 1s ease forwards;
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            }
-
-            .hero p {
-                font-size: 1.5rem;
-                opacity: 0;
-                animation: fadeInUp 1s ease 0.3s forwards;
-                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-            }
-
-
-
-            /* About Section */
-            .about {
-                background: transparent;
-                scroll-margin-top: 120px;
-                /*                margin-top: 180px;*/
-            }
-
-            .about-content {
-                text-align: center;
-                /*                max-width: 800px;*/
-                width: 90%;
-                margin: 40px auto;
-            }
-
-            .about h2 {
-                font-size: 4rem;
-                margin-bottom: 2rem;
-                font-family: "Libertinus Serif", serif; /* Modern sans-serif font */
-                font-weight: normal;
-                text-align: left;
-            }
-
-            .about p {
-                font-size: 1.2rem;
-                margin-bottom: 1.5rem;
-                /*                font-family: "National Park", sans-serif;*/
-                font-family: "Libertinus Serif", serif;
-                text-align: left;
-            }
-
-
-
-            /* Products Section */
-            .products {
-                background: transparent;
-            }
-
-            .products h2 {
-                text-align: center;
-                font-size: 4rem;
-                margin-bottom: 3rem;
-                font-family: "Libertinus Serif", serif; /* Modern sans-serif font */
-                font-weight: normal;
-            }
-
-            .product-grid {
-                display: flex;
-                flex-direction: column;
-                gap: 3rem;
-                margin-top: 2rem;
-                max-width: 100%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .product-card {
-                display: grid;
-                grid-template-columns: 1fr 1fr 1fr; /* Three equal columns for images */
-                grid-template-rows: auto auto auto; /* Three rows: h3, images, p */
-                gap: 1rem; /* Add some spacing between elements */
-                text-align: center;
-                transition: all 0.3s ease;
-                overflow: hidden;
-                width: 90%;
-                margin: 0 auto;
-                padding: 1rem; /* Add some padding */
-            }
-
-
-
-            /* Center text (h3 and p) in the middle column, first row */
-            .product-card h3 {
-                grid-column: 1 / -1; /* Span all columns */
-                grid-row: 1;
-                margin: 0; /* Remove default margins */
-                font-size: 4rem; /* Larger font for "Biggie" */
-                font-family: "Libertinus Serif", serif; /* Modern sans-serif font */
-                font-weight: normal;
-                text-align: right;
-            }
-
-            .product-card p {
-                grid-column: 1 / -1; /* Span all columns */
-                grid-row: 3;
-                margin: 0;
-                /*                margin-top: 5rem; !* Space below h3 to stack vertically and align with photos *!*/
-                font-size: 1.2rem; /* Smaller font for "blablabla" */
-                font-family: "Libertinus Serif", serif;
-                text-align: left;
-            }
-
-
-
-            /* Style all product images */
-            .product-image {
-                grid-row: 2; /* All images in second row */
-                width: 100%; /* Full width of their grid cell */
-                height: 400px; /* Fixed height; adjust as needed */
-                background-size: contain; /* Ensure background images cover the div */
-                background-repeat: no-repeat;
-                background-position: center; /* Center the background images */
-                transition: transform 0.3s ease;
-            }
-
-
-
-            /* Grid area assignments and specific background images */
-            .biggie-image-main {
-                grid-column: 2;
-                background-image: url('assets/images/bags/biggie_main.jpg');
-            }
-
-            .biggie-image-small-1 {
-                grid-column: 1;
-                background-image: url('assets/images/bags/biggie_left.jpg');
-            }
-
-            .biggie-image-small-2 {
-                grid-column: 3;
-                background-image: url('assets/images/bags/biggie_right.jpg');
-            }
-            .ocean-image-main {
-                grid-column: 2;
-                background-image: url('assets/images/bags/ocean_main.jpg');
-            }
-
-            .ocean-image-small-1 {
-                grid-column: 1;
-                background-image: url('assets/images/bags/ocean_left.jpg');
-            }
-
-            .ocean-image-small-2 {
-                grid-column: 3;
-                background-image: url('assets/images/bags/ocean_right.gif');
-            }
-
-            .reverse-image-main {
-                grid-column: 2;
-                background-image: url('assets/images/bags/reverse_main.jpg');
-            }
-
-            .reverse-image-small-1 {
-                grid-column: 1;
-                background-image: url('assets/images/bags/reverse_left.jpg');
-            }
-
-            .reverse-image-small-2 {
-                grid-column: 3;
-                background-image: url('assets/images/bags/reverse_right.jpg');
-            }
-
-            .bottom-image-main {
-                grid-column: 2;
-                background-image: url('assets/images/bags/bottom_mid.jpg');
-            }
-
-            .bottom-image-small-1 {
-                grid-column: 1;
-                background-image: url('assets/images/bags/bottom_left.jpg');
-            }
-
-            .bottom-image-small-2 {
-                grid-column: 3;
-                background-image: url('assets/images/bags/bottom_right.jpg');
-            }
-
-
-            .product-card:hover .product-image {
-                transform: scale(1.05);
-            }
-
-
-
-            /* Contact Section */
-            .contact {
-                background: transparent;
-                scroll-margin-top: 100px;
-                min-height: 35vh;
-            }
-
-            .contact h2 {
-                text-align: left;
-                font-size: 3rem;
-                font-family: "Libertinus Serif", serif; /* Modern sans-serif font */
-                font-weight: normal;
-                width: 90%;
-            }
-
-            .contact-content {
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
-                align-items: flex-start;
-                margin: 0 auto;
-                font-family: "Libertinus Serif", serif;
-                font-size: 2rem;
-                width: 90%;
-            }
-
-            .contact-info {
-                text-align: left;
-            }
-
-            .contact-info h3 {
-                font-weight: normal;
-                font-size: 1.5rem;
-            }
-
-            .contact-method h3 {
-                font-size: 1.2rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .contact-method p {
-                font-size: 1.1rem;
-                opacity: 0.8;
-            }
-
-            .form-group label {
-                display: block;
-                margin-bottom: 0.5rem;
-                font-weight: bold;
-            }
-
-            .form-group input,
-            .form-group textarea {
-                width: 100%;
-                padding: 0.8rem;
-                border: none;
-                border-radius: 10px;
-                background: rgba(255, 255, 255, 0.9);
-                font-size: 1rem;
-            }
-
-            .form-group textarea {
-                height: 120px;
-                resize: vertical;
-            }
-
-
-
-            /* Animations */
-            @keyframes fadeInUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(30px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-
-
-            /* Scroll Animations */
-            .fade-in {
-                opacity: 0;
-                transform: translateY(30px);
-                transition: all 0.6s ease;
-            }
-
-            .fade-in.visible {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            .contact-links-container {
-                /*                    display: flex;*/
-                gap: 20px; /* Optional: adds space between the links */
-                justify-content: flex-end; /* Optional: aligns links to the right */
-            }
-            .section:target {
-                scroll-margin-top: 80px;
-            }
-
-
-
-            /* Responsive Design */
-            @media (max-width: 768px) {
-                .hero h1 {
-                    font-size: 2.5rem;
-                }
-
-                .hero p {
-                    font-size: 1.2rem;
-                }
-
-                .about h2 {
-                    font-size: 4rem;
-                }
-                ,
-                .products h2 {
-                    font-size: 4rem;
-                }
-                ,
-                .contact h2 {
-                    font-size: 4rem;
-                }
-
-                .header {
-                    padding: 1rem;
-                }
-
-                .logo {
-                    font-size: 1.5rem;
-                }
-
-                .product-image {
-                    height: 150px;
-                }
-
-            }
-
-
-
-            /* Gallery Section */
-            .gallery {
-                background: transparent;
-                color: #333;
-            }
-
-            .gallery-grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr; /* Two equal columns */
-                gap: 1rem;
-                /*                max-width: 1000px;*/
-                margin: 180px auto 0;
-                width: 90%;
-            }
-
-
-
-            /* Large image on the left */
-            .gallery-image-large {
-                background-size: contain; /* Prevents cropping */
-                background-repeat: no-repeat;
-                background-position: center;
-                height: 500px;
-                width: 100%;
-                border-radius: 10px;
-                transition: transform 0.3s ease;
-            }
-
-
-
-            /* Right column container */
-            .gallery-images-right {
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-
-
-            /* Small images on the right */
-            .gallery-image-small {
-                background-size: contain; /* Prevents cropping */
-                background-repeat: no-repeat;
-                background-position: center;
-                height: 400px; /* Half of large image minus gap */
-                width: 100%;
-                border-radius: 10px;
-                transition: transform 0.3s ease;
-            }
-
-
-
-            /* Hover effects */
-            .gallery-image-large:hover,
-            .gallery-image-small:hover {
-                transform: scale(1.02);
-            }
-
-
-
-            /* Responsive design */
-            @media (max-width: 768px) {
-                .gallery-grid {
-                    grid-template-columns: 1fr; /* Stack on mobile */
-                    gap: 1rem;
-                }
-
-                .gallery-images-right {
-                    flex-direction: row; /* Side by side on mobile */
-                }
-
-                .gallery-image-small {
-                    min-height: 150px;
-                }
-            }
-
-            .instagram-link {
-                color: inherit; /* Use the parent element's color */
-                text-decoration: none;
-                transition: all 0.3s ease;
-            }
-
-            .instagram-link:hover {
-                color: #E4405F; /* Instagram brand color on hover */
-                text-decoration: none;
-            }
-
-            .instagram-link:visited {
-                color: inherit; /* Remove blue visited color */
-            }
-
-            .instagram-link:link {
-                color: inherit; /* Remove blue unvisited color */
-            }
-        </style>
+        <link href="./styles/style.css" rel="stylesheet"></link>
     </head>
-    <!-- Header -->
-    <header class="header">
-        <!--todo: fix link clicking logo-->
-        <a href="#about" class="logo">
-            <div class="logo-icon"></div>
-        </a>
-        <div class="contact-links-container">
-            <a href="#about" class="contact-link">About</a>
-            <a href="#contact" class="contact-link">Contact</a>
-        </div>
-    </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Gallery Section -->
-        <section class="section gallery" id="gallery">
-            <div class="container">
-                <div class="gallery-grid fade-in">
-                    <div class="gallery-image-large" style="                                background-image: url('assets/images/bags/start1.jpg');"></div>
-                    <div class="gallery-images-right">
-                        <div class="gallery-image-small" style="                                background-image: url('assets/images/bags/start2.jpg');"></div>
-                        <div class="gallery-image-small" style="                                background-image: url('assets/images/bags/start3.jpg');"></div>
-                    </div>
-                </div>
+    <body id="body">
+        <!-- Header -->
+        <header class="header">
+            <!--todo: fix link clicking logo-->
+            <a href="#body" class="logo">
+                <div class="logo-icon"></div>
+            </a>
+            <div class="contact-links-container">
+                <a href="#about" class="contact-link">About</a>
+                <a href="#contact" class="contact-link">Contact</a>
             </div>
-        </section>
-        <!-- About Section -->
-        <section class="section about" id="about">
-            <div class="container">
-                <div class="about-content fade-in">
-                    <h2>About</h2>
-                    <p>Welcome to my portfolio! My name is Tereza Marková, but in the creative world, I craft under
-                        the name <em>Undie</em>. While my professional journey began in the structured world of corporate
-                        finance, I always felt a yearning for something more tangible—something that allowed me to
-                        work with my hands and bring ideas to life in the real world. So, in 2023, I took the leap to
-                        reconnect with my passion for craftsmanship, and that's how Undie was born.<br>
-                        It all started with a single design: the Biggie Bag. From the beginning, my focus has been on
-                        creating unisex designs that resonate with an outdoor spirit—because that’s a reflection of who I
-                        am. I love versatility and multifunctionality, and I strive to weave those values into every piece I
-                        create. My designs aren’t just accessories; they’re tools meant to adapt to your lifestyle and
-                        stand the test of time.<br>
-                        I primarily work with durable, high-quality outdoor materials sourced from local suppliers, but
-                        sustainability is a cornerstone of what I do. That’s why I also incorporate secondhand and
-                        deadstock fabrics wherever possible, giving new life to materials that might otherwise go
-                        unused. Every bag is thoughtfully designed and lovingly handcrafted by me, with an emphasis
-                        on quality and individuality. While my core designs are customizable to suit your needs, I’m
-                        always excited to collaborate on fully custom creations from scratch—those projects ignite my
-                        creativity the most.<br>
-                        At Undie, I believe in a philosophy of repair and sustainability. Instead of replacing your
-                        belongings when they wear out, why not fix them? If your Undie bag ever needs a little bit of
-                        love, just let me know, and I’ll be happy to repair it for you. It’s my small way of encouraging a
-                        world that values durability, mindfulness, and conscious consumption.<br>
-                        Thank you for stopping by—let’s create something meaningful together!</p>
-                </div>
-            </div>
-        </section>
+        </header>
 
-        <!-- Products Section -->
-        <section class="section products" id="products">
-            <div class="container">
-                <div class="product-grid">
-                    <div class="product-card fade-in">
-                        <h3>Biggie</h3>
-                        <div class="product-image biggie-image-main"></div>
-                        <div class="product-image biggie-image-small-1"></div>
-                        <div class="product-image biggie-image-small-2"></div>
-                        <p>Biggie - Also known as the design my friends wouldn’t let me keep to myself, this bag holds a
-                            special place in my journey—it’s where it all began. The inspiration struck during a frustratingly
-                            familiar moment: a quick trip to the grocery store, only to realize I’d forgotten my trusty tote bag.
-                            With nothing to carry my groceries in, the idea for a smarter, more versatile bag was born. I
-                            wanted something that wasn’t just functional but seamlessly fit into everyday life—perfect for
-                            city strolls with a spontaneous stop at the market.<br>
-                            And so, the Expansible Bag came to life. Designed to adapt to your needs, this bag expands
-                            both horizontally and vertically, offering flexibility for whatever your day holds. Whether you’re
-                            carrying a few essentials or loading up with fresh produce, it adjusts effortlessly. The secure zip
-                            closure keeps everything safe, while a handy interior pocket provides the perfect spot for your
-                            smaller must-haves—keys, wallet, or phone. The adjustable straps ensure a comfortable fit,
-                            tailored just for you, no matter your height or how you prefer to wear it.<br>
-                            It’s more than just a bag—it’s a problem solver, a daily companion, and a reflection of my love
-                            for thoughtful, functional design.</p>
-                    </div>
-                    <div class="product-card fade-in">
-                        <h3>Ocean</h3>
-                        <div class="product-image ocean-image-main"></div>
-                        <div class="product-image ocean-image-small-1"></div>
-                        <div class="product-image ocean-image-small-2"></div>
-                        <p>With this design, I wanted to bring my favorite creative technique to life—a unique, stretchy
-                            thread style I call freestyle. It’s an organic process that adds texture and personality to every
-                            piece, making each bag one-of-a-kind. No two are exactly the same, and that’s what I love most
-                            about it—the individuality stitched into every thread.<br>
-                            Versatility is at the heart of this bag. Thanks to its adjustable straps, you can wear it in whatever
-                            way suits your vibe or needs: as a fun and functional fanny pack, a stylish crossbody, or
-                            effortlessly slung over your shoulder. The original design features a sleek magnetic closure for
-                            easy access, but if you prefer something more secure, I can swap it out for a
-                            zipper—customization is always an option.<br>
-                            What’s more, the size is completely up to you! Whether you need something compact for your
-                            essentials or a roomier version to fit your on-the-go lifestyle, we can tailor it to fit your world. It’s
-                            a bag that’s as flexible and unique as you are, blending style, function, and just the right touch
-                            of individuality.</p>
-                    </div>
-                    <div class="product-card fade-in">
-                        <h3>Reverse</h3>
-                        <div class="product-image reverse-image-main"></div>
-                        <div class="product-image reverse-image-small-1"></div>
-                        <div class="product-image reverse-image-small-2"></div>
-                        <p>Dreaming of packing light for your vacation but worried about finding a bag that matches all your
-                            outfits? Or you just can not decide which color of bag you need? Let me introduce The Reverse
-                            Bag—your ultimate style chameleon. With this clever design, you’re essentially getting two bags
-                            in one. Whether you want to match your look, suit your mood, or switch things up mid-day, this
-                            bag makes it effortless. Simply flip the body of the bag, and voilà—a whole new vibe.<br>
-                            The adjustable strap ensures a perfect fit, so you can wear it comfortably all day long, no matter
-                            where your adventures take you. Plus, the colors, fabrics, and details are fully customizable,
-                            allowing you to create a bag that reflects your personal style. The magnetic closure is a
-                            thoughtful touch, designed specifically to maintain the bag’s reversibility while keeping your
-                            belongings secure.<br>
-                            It’s more than a bag—it’s a versatile, stylish problem-solver that’s ready to adapt to your life,
-                            your wardrobe, and your travels.</p>
-                    </div>
-                    <div class="product-card fade-in">
-                        <div class="product-image bottom-image-main"></div>
-                        <div class="product-image bottom-image-small-1"></div>
-                        <div class="product-image bottom-image-small-2"></div>
+        <!-- Main Content -->
+        <main id="main" class="main-content">
+            <!-- Gallery Section -->
+            <section class="section gallery" id="gallery">
+                <div class="container">
+                    <div class="gallery-grid fade-in">
+                        <div class="gallery-image-large" style="                                    background-image: url('assets/images/bags/start1.jpg');"></div>
+                        <div class="gallery-images-right">
+                            <div class="gallery-image-small" style="                                    background-image: url('assets/images/bags/start2.jpg');"></div>
+                            <div class="gallery-image-small" style="                                    background-image: url('assets/images/bags/start3.jpg');"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+            <!-- About Section -->
+            <section class="section about" id="about">
+                <div class="container">
+                    <div class="about-content fade-in">
+                        <h2>About</h2>
+                        <p>Welcome to my portfolio! My name is Tereza Marková, but in the creative world, I craft under
+                            the name <em>Undie</em>. While my professional journey began in the structured world of corporate
+                            finance, I always felt a yearning for something more tangible—something that allowed me to
+                            work with my hands and bring ideas to life in the real world. So, in 2023, I took the leap to
+                            reconnect with my passion for craftsmanship, and that's how Undie was born.<br>
+                            It all started with a single design: the Biggie Bag. From the beginning, my focus has been on
+                            creating unisex designs that resonate with an outdoor spirit—because that’s a reflection of who I
+                            am. I love versatility and multifunctionality, and I strive to weave those values into every piece I
+                            create. My designs aren’t just accessories; they’re tools meant to adapt to your lifestyle and
+                            stand the test of time.<br>
+                            I primarily work with durable, high-quality outdoor materials sourced from local suppliers, but
+                            sustainability is a cornerstone of what I do. That’s why I also incorporate secondhand and
+                            deadstock fabrics wherever possible, giving new life to materials that might otherwise go
+                            unused. Every bag is thoughtfully designed and lovingly handcrafted by me, with an emphasis
+                            on quality and individuality. While my core designs are customizable to suit your needs, I’m
+                            always excited to collaborate on fully custom creations from scratch—those projects ignite my
+                            creativity the most.<br>
+                            At Undie, I believe in a philosophy of repair and sustainability. Instead of replacing your
+                            belongings when they wear out, why not fix them? If your Undie bag ever needs a little bit of
+                            love, just let me know, and I’ll be happy to repair it for you. It’s my small way of encouraging a
+                            world that values durability, mindfulness, and conscious consumption.<br>
+                            Thank you for stopping by—let’s create something meaningful together!</p>
+                    </div>
+                </div>
+            </section>
 
-        <!-- Contact Section -->
-        <section class="section contact" id="contact">
-            <div class="container">
-                <div class="contact-content">
-                    <h2 class="fade-in">Contact Me</h2>
-                    <div class="contact-info fade-in">
-                        <h3><a href="https://instagram.com/_undie_" target="_blank" rel="noopener noreferrer" class="instagram-link">Instagram</a></h3>
-                        <h3>undie@seznam.cz</h3>
+            <!-- Products Section -->
+            <section class="section products" id="products">
+                <div class="container">
+                    <div class="product-grid">
+                        <div class="product-card fade-in">
+                            <h3>Biggie</h3>
+                            <div class="product-image biggie-image-main"></div>
+                            <div class="product-image biggie-image-small-1"></div>
+                            <div class="product-image biggie-image-small-2"></div>
+                            <p>Biggie - Also known as the design my friends wouldn’t let me keep to myself, this bag holds a
+                                special place in my journey—it’s where it all began. The inspiration struck during a frustratingly
+                                familiar moment: a quick trip to the grocery store, only to realize I’d forgotten my trusty tote bag.
+                                With nothing to carry my groceries in, the idea for a smarter, more versatile bag was born. I
+                                wanted something that wasn’t just functional but seamlessly fit into everyday life—perfect for
+                                city strolls with a spontaneous stop at the market.<br>
+                                And so, the Expansible Bag came to life. Designed to adapt to your needs, this bag expands
+                                both horizontally and vertically, offering flexibility for whatever your day holds. Whether you’re
+                                carrying a few essentials or loading up with fresh produce, it adjusts effortlessly. The secure zip
+                                closure keeps everything safe, while a handy interior pocket provides the perfect spot for your
+                                smaller must-haves—keys, wallet, or phone. The adjustable straps ensure a comfortable fit,
+                                tailored just for you, no matter your height or how you prefer to wear it.<br>
+                                It’s more than just a bag—it’s a problem solver, a daily companion, and a reflection of my love
+                                for thoughtful, functional design.</p>
+                        </div>
+                        <div class="product-card fade-in">
+                            <h3>Ocean</h3>
+                            <div class="product-image ocean-image-main"></div>
+                            <div class="product-image ocean-image-small-1"></div>
+                            <div class="product-image ocean-image-small-2"></div>
+                            <p>With this design, I wanted to bring my favorite creative technique to life—a unique, stretchy
+                                thread style I call freestyle. It’s an organic process that adds texture and personality to every
+                                piece, making each bag one-of-a-kind. No two are exactly the same, and that’s what I love most
+                                about it—the individuality stitched into every thread.<br>
+                                Versatility is at the heart of this bag. Thanks to its adjustable straps, you can wear it in whatever
+                                way suits your vibe or needs: as a fun and functional fanny pack, a stylish crossbody, or
+                                effortlessly slung over your shoulder. The original design features a sleek magnetic closure for
+                                easy access, but if you prefer something more secure, I can swap it out for a
+                                zipper—customization is always an option.<br>
+                                What’s more, the size is completely up to you! Whether you need something compact for your
+                                essentials or a roomier version to fit your on-the-go lifestyle, we can tailor it to fit your world. It’s
+                                a bag that’s as flexible and unique as you are, blending style, function, and just the right touch
+                                of individuality.</p>
+                        </div>
+                        <div class="product-card fade-in">
+                            <h3>Reverse</h3>
+                            <div class="product-image reverse-image-main"></div>
+                            <div class="product-image reverse-image-small-1"></div>
+                            <div class="product-image reverse-image-small-2"></div>
+                            <p>Dreaming of packing light for your vacation but worried about finding a bag that matches all your
+                                outfits? Or you just can not decide which color of bag you need? Let me introduce The Reverse
+                                Bag—your ultimate style chameleon. With this clever design, you’re essentially getting two bags
+                                in one. Whether you want to match your look, suit your mood, or switch things up mid-day, this
+                                bag makes it effortless. Simply flip the body of the bag, and voilà—a whole new vibe.<br>
+                                The adjustable strap ensures a perfect fit, so you can wear it comfortably all day long, no matter
+                                where your adventures take you. Plus, the colors, fabrics, and details are fully customizable,
+                                allowing you to create a bag that reflects your personal style. The magnetic closure is a
+                                thoughtful touch, designed specifically to maintain the bag’s reversibility while keeping your
+                                belongings secure.<br>
+                                It’s more than a bag—it’s a versatile, stylish problem-solver that’s ready to adapt to your life,
+                                your wardrobe, and your travels.</p>
+                        </div>
+                        <div class="product-card fade-in">
+                            <div class="product-image bottom-image-main"></div>
+                            <div class="product-image bottom-image-small-1"></div>
+                            <div class="product-image bottom-image-small-2"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="section contact" id="contact">
+                <div class="container">
+                    <div class="contact-content">
+                        <h2 class="fade-in">Contact Me</h2>
+                        <div class="contact-info fade-in">
+                            <h3><a href="https://instagram.com/_undie_" target="_blank" rel="noopener noreferrer" class="instagram-link">Instagram</a></h3>
+                            <h3>undie@seznam.cz</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+    </body>
 
     <script>
         // Smooth scrolling for anchor links
@@ -774,22 +227,6 @@
             });
         });
 
-        // Image loading fallback for product images
-        document.querySelectorAll('.product-image').forEach(img => {
-            const bgImage = window.getComputedStyle(img).backgroundImage;
-            if (bgImage && bgImage !== 'none') {
-                const url = bgImage.slice(4, -1).replace(/"/g, "");
-                const testImg = new Image();
-                testImg.onload = () => {
-                    img.style.opacity = '1';
-                };
-                testImg.onerror = () => {
-                    img.style.background = 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)';
-                    img.style.opacity = '0.8';
-                };
-                testImg.src = url;
-            }
-        });
 
     </script>
 </html>

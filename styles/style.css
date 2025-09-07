@@ -1,0 +1,515 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Libertinus Serif", serif;
+    line-height: 1.6;
+    color: black;
+    background: white;
+
+    min-height: 100dvh;
+
+    scroll-margin-top: 120px;
+
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 2rem;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother, longer transition */
+}
+
+
+.contact-link {
+    color: black;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-family: "Libertinus Serif", serif;
+    transition: all 0.3s ease;
+    padding: 0.3rem 0.3rem;
+    border-radius: 20px;
+}
+
+
+.logo {
+    display: inline-block;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother transition */
+    max-width: 100%;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo-icon {
+    width: 600px;
+    height: 150px;
+    background: url('../assets/images/icons/undie_logo_png_black.png') center/contain no-repeat;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother transition */
+    max-width: 100%;
+}
+
+.header.shrunk .logo-icon {
+    width: 200px; /* Smaller logo when shrunk */
+    height: 60px;
+}
+.header.shrunk {
+    height: 90px; /* Smaller height when scrolled */
+    padding: 0.5rem 2rem; /* Reduced padding */
+    background: rgba(255, 255, 255, 0.75); /* More transparent */
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.15);
+    backdrop-filter: none; /* Remove blur completely */
+}
+
+
+/* Main Content */
+.main-content {
+    margin-top: 120px;
+}
+
+.section {
+    min-height: 60vh;
+    /*                padding: 2rem 2rem;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+/* Hero Section */
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.3s forwards;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+/* About Section */
+.about {
+    background: transparent;
+    scroll-margin-top: 120px;
+    /*                margin-top: 180px;*/
+}
+
+.about-content {
+    text-align: center;
+    /*                max-width: 800px;*/
+    width: 90%;
+    margin: 40px auto;
+}
+
+.about h2 {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    font-family: "Libertinus Serif", serif; /* Modern sans-serif font */
+    font-weight: normal;
+    text-align: left;
+}
+
+.about p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    /*                font-family: "National Park", sans-serif;*/
+    font-family: "Libertinus Serif", serif;
+    text-align: left;
+}
+
+
+/* Products Section */
+.products {
+    background: transparent;
+}
+
+.products h2 {
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 3rem;
+    font-family: "Libertinus Serif", serif; /* Modern sans-serif font */
+    font-weight: normal;
+}
+
+.product-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 2rem;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Three equal columns for images */
+    grid-template-rows: auto auto auto; /* Three rows: h3, images, p */
+    gap: 1rem; /* Add some spacing between elements */
+    text-align: center;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    width: 90%;
+    margin: 0 auto;
+    padding: 1rem; /* Add some padding */
+}
+
+
+/* Center text (h3 and p) in the middle column, first row */
+.product-card h3 {
+    grid-column: 1 / -1; /* Span all columns */
+    grid-row: 1;
+    margin: 0; /* Remove default margins */
+    font-size: 4rem; /* Larger font for "Biggie" */
+    font-family: "Libertinus Serif", serif; /* Modern sans-serif font */
+    font-weight: normal;
+    text-align: right;
+}
+
+.product-card p {
+    grid-column: 1 / -1; /* Span all columns */
+    grid-row: 3;
+    margin: 0;
+    /*                margin-top: 5rem; !* Space below h3 to stack vertically and align with photos *!*/
+    font-size: 1.2rem; /* Smaller font for "blablabla" */
+    font-family: "Libertinus Serif", serif;
+    text-align: left;
+}
+
+
+/* Style all product images */
+.product-image {
+    grid-row: 2; /* All images in second row */
+    width: 100%; /* Full width of their grid cell */
+    height: 400px; /* Fixed height; adjust as needed */
+    background-size: contain; /* Ensure background images cover the div */
+    background-repeat: no-repeat;
+    background-position: center; /* Center the background images */
+    transition: transform 0.3s ease;
+}
+
+
+/* Grid area assignments and specific background images */
+.biggie-image-main {
+    grid-column: 2;
+    background-image: url('../assets/images/bags/biggie_main.jpg');
+}
+
+.biggie-image-small-1 {
+    grid-column: 1;
+    background-image: url('../assets/images/bags/biggie_left.jpg');
+}
+
+.biggie-image-small-2 {
+    grid-column: 3;
+    background-image: url('../assets/images/bags/biggie_right.jpg');
+}
+.ocean-image-main {
+    grid-column: 2;
+    background-image: url('../assets/images/bags/ocean_main.jpg');
+}
+
+.ocean-image-small-1 {
+    grid-column: 1;
+    background-image: url('../assets/images/bags/ocean_left.jpg');
+}
+
+.ocean-image-small-2 {
+    grid-column: 3;
+    background-image: url('../assets/images/bags/ocean_right.gif');
+}
+
+.reverse-image-main {
+    grid-column: 2;
+    background-image: url('../assets/images/bags/reverse_main.jpg');
+}
+
+.reverse-image-small-1 {
+    grid-column: 1;
+    background-image: url('../assets/images/bags/reverse_left.jpg');
+}
+
+.reverse-image-small-2 {
+    grid-column: 3;
+    background-image: url('../assets/images/bags/reverse_right.jpg');
+}
+
+.bottom-image-main {
+    grid-column: 2;
+    background-image: url('../assets/images/bags/bottom_mid.jpg');
+}
+
+.bottom-image-small-1 {
+    grid-column: 1;
+    background-image: url('../assets/images/bags/bottom_left.jpg');
+}
+
+.bottom-image-small-2 {
+    grid-column: 3;
+    background-image: url('../assets/images/bags/bottom_right.jpg');
+}
+
+
+.product-card:hover .product-image {
+    transform: scale(1.05);
+}
+
+
+/* Contact Section */
+.contact {
+    background: transparent;
+    scroll-margin-top: 100px;
+    min-height: 35vh;
+}
+
+.contact h2 {
+    text-align: left;
+    font-size: 3rem;
+    font-family: "Libertinus Serif", serif; /* Modern sans-serif font */
+    font-weight: normal;
+    width: 90%;
+}
+
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+    margin: 0 auto;
+    font-family: "Libertinus Serif", serif;
+    font-size: 2rem;
+    width: 90%;
+}
+
+.contact-info {
+    text-align: left;
+}
+
+.contact-info h3 {
+    font-weight: normal;
+    font-size: 1.5rem;
+}
+
+.contact-method h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-method p {
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Scroll Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact-links-container {
+    /*                    display: flex;*/
+    gap: 20px; /* Optional: adds space between the links */
+    justify-content: flex-end; /* Optional: aligns links to the right */
+}
+.section:target {
+    scroll-margin-top: 80px;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    .about h2 {
+        font-size: 4rem;
+    }
+    ,
+    .products h2 {
+        font-size: 4rem;
+    }
+    ,
+    .contact h2 {
+        font-size: 4rem;
+    }
+
+    .header {
+        padding: 1rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .product-image {
+        height: 150px;
+    }
+
+}
+
+
+/* Gallery Section */
+.gallery {
+    background: transparent;
+    color: #333;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 1rem;
+    /*                max-width: 1000px;*/
+    margin: 180px auto 0;
+    width: 90%;
+}
+
+
+/* Large image on the left */
+.gallery-image-large {
+    background-size: contain; /* Prevents cropping */
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 500px;
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+
+/* Right column container */
+.gallery-images-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+/* Small images on the right */
+.gallery-image-small {
+    background-size: contain; /* Prevents cropping */
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 400px; /* Half of large image minus gap */
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+
+/* Hover effects */
+.gallery-image-large:hover,
+.gallery-image-small:hover {
+    transform: scale(1.02);
+}
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Stack on mobile */
+        gap: 1rem;
+    }
+
+    .gallery-images-right {
+        flex-direction: row; /* Side by side on mobile */
+    }
+
+    .gallery-image-small {
+        min-height: 150px;
+    }
+}
+
+.instagram-link {
+    color: inherit; /* Use the parent element's color */
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.instagram-link:hover {
+    color: #E4405F; /* Instagram brand color on hover */
+    text-decoration: none;
+}
+
+.instagram-link:visited {
+    color: inherit; /* Remove blue visited color */
+}
+
+.instagram-link:link {
+    color: inherit; /* Remove blue unvisited color */
+}
